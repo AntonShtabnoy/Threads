@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <property name="console_pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{2} - %msg%n</property>
+        <property name="file_pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{5} - %msg%n</property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${console_pattern}"/>
+        </Console>
+        <File name="file" fileName="log/log.log" bufferedIO="true">
+            <PatternLayout pattern="${file_pattern}"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <Appender-ref ref="console" level="debug"/>
+            <Appender-ref ref="file" level="info"/>
+        </Root>
+    </Loggers>
+</Configuration>
